@@ -1734,7 +1734,13 @@ Respond to this ${starsVal}-star ${platform} review: "${text}"
 Return ONLY the response text.`;
 
   try{
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:200,messages:[{role:'user',content:prompt}]})});
+    const resp=await fetch('https://const resp = await fetch('https://reputable-api.araghunathan17.workers.dev', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ prompt: prompt })
+});
+const data = await resp.json();
+state.draft = data.content?.[0]?.text || '';/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:200,messages:[{role:'user',content:prompt}]})});
     const data=await resp.json();
     state.draft=data.content?.[0]?.text||'';
   }catch(e){state.draft='';}
